@@ -47,6 +47,7 @@ body{
 
 #profile img{
   width: 112px;
+  border-radius: 50%;
 }
 
 #profile p{
@@ -77,11 +78,16 @@ body{
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+
+  animation: slider-back 0.4s;
+}
+
+#switch button:hover{
+  outline: 8px solid var(--highlight-color);
 }
 
 .light #switch button{
-  right: 0;
-  left: initial;
+  animation: slider-in 0.4s forwards;
 }
 
 
@@ -169,5 +175,25 @@ footer{
   }
   .light{
     --bg-url: url(./imagens/bg-desktop-light.jpg);
+  }
+}
+
+/* Animation */
+
+@keyframes slider-in{
+  from{
+    left: 0;
+  }
+  to{
+    left: 50%;
+  }
+}
+
+@keyframes slider-back{
+  from{
+    left: 50%;
+  }
+  to{
+    left: 0;
   }
 }
